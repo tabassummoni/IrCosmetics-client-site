@@ -11,7 +11,7 @@ const { user } = useContext(AuthContext);
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`https://my-app-server-phi.vercel.app/users/${user.email}`)
+      fetch(`http://localhost:4000/users/${user.email}`)
         .then(res => res.json())
         .then(data => setDbUser(data))
         .catch(err => console.error(err));
@@ -37,7 +37,7 @@ const { user } = useContext(AuthContext);
     };
 
     try {
-      const res = await fetch("https://my-app-server-phi.vercel.app/review", {
+      const res = await fetch("http://localhost:4000/review", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

@@ -6,7 +6,7 @@ const ShowAllReviewAdmin = () => {
 
   // Load all reviews
   const fetchReviews = async () => {
-    const res = await fetch("https://my-app-server-phi.vercel.app/review");
+    const res = await fetch("http://localhost:4000/review");
     const data = await res.json();
     setReviews(data);
   };
@@ -26,7 +26,7 @@ const ShowAllReviewAdmin = () => {
     });
 
     if (confirm.isConfirmed) {
-      const res = await fetch(`https://my-app-server-phi.vercel.app/review/${id}`, {
+      const res = await fetch(`http://localhost:4000/review/${id}`, {
         method: "DELETE",
       });
 

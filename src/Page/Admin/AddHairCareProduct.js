@@ -41,7 +41,7 @@ const addNewHairProduct = {
       // const initialData = Object.fromEntries(formData.entries());
       // console.log(initialData);
 
-      fetch('https://my-app-server-phi.vercel.app/cosmetics',{
+      fetch('http://localhost:4000/cosmetics',{
           method :'POST',
           headers: {
               'content-type': 'application/json'

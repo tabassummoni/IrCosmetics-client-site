@@ -13,7 +13,7 @@ const TopHeade = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`https://my-app-server-phi.vercel.app/users/${user.email}`)
+      fetch(`http://localhost:4000/users/${user.email}`)
         .then(res => res.json())
         .then(data => setDbUser(data))
         .catch(err => console.error(err));

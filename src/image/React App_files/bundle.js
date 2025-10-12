@@ -14401,7 +14401,7 @@ if (true) {
         case TransitionLane14:
         case TransitionLane15:
         case TransitionLane16:
-          return currentTime + 5000;
+          return currentTime + 4000;
         case RetryLane1:
         case RetryLane2:
         case RetryLane3:
@@ -39922,7 +39922,7 @@ if (true) {
     var IMMEDIATE_PRIORITY_TIMEOUT = -1; // Eventually times out
 
     var USER_BLOCKING_PRIORITY_TIMEOUT = 250;
-    var NORMAL_PRIORITY_TIMEOUT = 5000;
+    var NORMAL_PRIORITY_TIMEOUT = 4000;
     var LOW_PRIORITY_TIMEOUT = 10000; // Never times out
 
     var IDLE_PRIORITY_TIMEOUT = maxSigned31BitInt; // Tasks are stored on a min heap

@@ -5,7 +5,7 @@ const HairShow = () => {
      
     const [hairProducts ,setHairProducts] = useState([]);
     useEffect ( () => {
-        fetch('https://my-app-server-phi.vercel.app/cosmetics')
+        fetch('http://localhost:4000/cosmetics')
         .then(res => res.json())
         .then(data => setHairProducts(data))
     })

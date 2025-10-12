@@ -6,7 +6,7 @@ const SkinShow = () => {
     
     const [skinProducts ,setSkinProducts] = useState([]);
     useEffect ( () => {
-        fetch('https://my-app-server-phi.vercel.app/skin')
+        fetch('http://localhost:4000/skin')
         .then(res => res.json())
         .then(data => setSkinProducts(data))
     })

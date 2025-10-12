@@ -40,7 +40,7 @@ const AddMakeUpProduct = () => {
         // const initialData = Object.fromEntries(formData.entries());
         // console.log(initialData);
 
-        fetch('https://my-app-server-phi.vercel.app/makeupcosmetics',{
+        fetch('http://localhost:4000/makeupcosmetics',{
             method :'POST',
             headers: {
                 'content-type': 'application/json'

@@ -41,7 +41,7 @@ const AddBabyCareProduct = () => {
         // const initialData = Object.fromEntries(formData.entries());
         // console.log(initialData);
 
-        fetch('https://my-app-server-phi.vercel.app/babyCosmetics',{
+        fetch('http://localhost:4000/babyCosmetics',{
             method :'POST',
             headers: {
                 'content-type': 'application/json'

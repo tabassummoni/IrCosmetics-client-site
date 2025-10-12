@@ -13,7 +13,7 @@ const handleUpdate =  event =>{
     const details = form.details.value;
     console.log(name,price);
     const updateSkinProduct ={name,price,expiration,details}
-    fetch(`https://my-app-server-phi.vercel.app/skin/${_id}`,{
+    fetch(`http://localhost:4000/skin/${_id}`,{
       method :'PUT',
       headers:{
         'content-type' : 'application/json'

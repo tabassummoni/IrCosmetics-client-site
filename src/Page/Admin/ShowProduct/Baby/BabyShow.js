@@ -4,7 +4,7 @@ import BabyShowDetails from './BabyShowDetails';
 const BabyShow = () => {
      const [babyProducts ,setSkinProducts] = useState([]);
     useEffect ( () => {
-        fetch('https://my-app-server-phi.vercel.app/babyCosmetics')
+        fetch('http://localhost:4000/babyCosmetics')
         .then(res => res.json())
         .then(data => setSkinProducts(data))
     })

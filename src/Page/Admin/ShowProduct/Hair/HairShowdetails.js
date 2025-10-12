@@ -6,7 +6,7 @@ const HairShowdetails = ({hairProduct}) => {
        
     const handleDelete =_id =>{
         console.log(_id)
-        fetch (`https://my-app-server-phi.vercel.app/cosmetics/${_id}`,{
+        fetch (`http://localhost:4000/cosmetics/${_id}`,{
             method:'DELETE'
         })
         

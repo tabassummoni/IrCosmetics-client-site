@@ -24,9 +24,9 @@ export default auth;
 
 
 
-// apiKey: import.meta.env.VITE_apiKey,
-// authDomain: import.meta.env.VITE_authDomain,
-// projectId: import.meta.env.VITE_projectId,
-// storageBucket: import.meta.env.VITE_storageBucket,
-// messagingSenderId: import.meta.env.VITE_messagingSenderId,
-// appId: import.meta.env.VITE_appId,
+// apiKey: import.meta.env.REACT_APP_apiKey,
+// authDomain: import.meta.env.REACT_APP_authDomain,
+// projectId: import.meta.env.REACT_APP_projectId,
+// storageBucket: import.meta.env.REACT_APP_storageBucket,
+// messagingSenderId: import.meta.env.REACT_APP_messagingSenderId,
+// appId: import.meta.env.REACT_APP_appId,

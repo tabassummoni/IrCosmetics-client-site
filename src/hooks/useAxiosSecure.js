@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const axiosSecure = axios.create({
-  baseURL: 'https://my-app-server-liard.vercel.app', // no trailing slash needed
+  baseURL: `http://localhost:4000`, // no trailing slash needed
 });
 
 const useAxiosSecure = () => {

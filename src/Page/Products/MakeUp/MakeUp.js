@@ -4,7 +4,7 @@ import MakeUpPro from './MakeUpPro';
 const MakeUp = () => {
   const [makeUpProducts, setMakeUpProducts] = useState([]);
   useEffect(() => {
-    fetch('https://my-app-server-phi.vercel.app/makeupcosmetics')
+    fetch('http://localhost:4000/makeupcosmetics')
       .then(res => res.json())
       .then(data => setMakeUpProducts(data))
   })
