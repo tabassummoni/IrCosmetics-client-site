@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# ✨ IrCosmetics - E-Commerce Cosmetic & Skin Care Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An elegant, fully responsive full-stack e-commerce web application specializing in cosmetics, skin care, makeup, and baby care products. Built using the **MERN (MongoDB, Express.js, React, Node.js)** stack and integrated with **Firebase** and **JWT** for secure authentication and authorization.
 
-## Available Scripts
+## 🔗 Live Links
+- **Frontend Live Site:** [https://ir-cosmetics-client-site.vercel.app](https://ir-cosmetics-client-site.vercel.app)
+- **Backend Server API:** [https://ir-server-site-1.onrender.com](https://ir-server-site-1.onrender.com)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Key Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Product Categorization:** Dedicated pages and sections for Skin Care, Makeup, Baby Products, and general Cosmetics.
+- **Dynamic Cart System:** Users can easily add items to the cart, view cart totals, delete items, or clear the entire cart.
+- **Admin Dashboard:** Fully protected dashboard where administrators can:
+  - Add, Update, and Delete products across all categories.
+  - Manage user roles (Promote standard users to Admin).
+  - View, confirm, and manage customer orders.
+  - View and delete product reviews left by users.
+- **Secure Authentication:** Implemented via Firebase for standard login/signup alongside JWT token verification for secure API routes.
+- **Elegant UI:** Built using modern styling tools like Tailwind CSS and daisyUI for a complete responsive mobile-first grid layout.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠️ Tech Stack Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Frontend:
+- **React.js** (Functional components, Hooks, and Router)
+- **Tailwind CSS & daisyUI** (For UI components & glass-morphism effects)
+- **SweetAlert2 (Swal)** (For beautiful interactive user alerts)
+- **Axios / Fetch API** (For seamless server communication)
 
-### `npm run build`
+### Backend:
+- **Node.js & Express.js** (RESTful API architecture)
+- **MongoDB** (NoSQL Database for fast and reliable data transactions)
+- **Firebase Admin SDK & jsonwebtoken (JWT)** (For multi-layered security and route protection)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
+## 🔐 Admin Dashboard Access Guide
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This project features a secure dynamic Admin Role Management system. There are no hardcoded admin credentials. To access the Admin Dashboard, follow these steps:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 1. Register a Standard User
+Go to the Live Site or your Localhost server, and create a new account using the **Sign Up** form with your email and password.
 
-### `npm run eject`
+### 2. Promote User to Admin via MongoDB (Atlas/Compass)
+Since first-time users are registered as standard customers by default, you need to manually grant Admin privileges through the database:
+1. Log into your **MongoDB Atlas Dashboard** or connect via **MongoDB Compass**.
+2. Navigate to the `my_app` database and open the `users` collection.
+3. Locate the document containing your registered email.
+4. Update or add the `role` field and set its value to `"admin"`:
+   ```json
+   {
+     "email": "your-email@example.com",
+     "role": "admin"
+   }
+## 📦 Installation & Local Setup
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To run this project locally on your machine, follow these steps:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 1. Clone the repository
+```bash
+git clone [https://github.com/tabassummoni/IrCosmetics-client-site.git](https://github.com/tabassummoni/IrCosmetics-client-site.git)
+cd IrCosmetics-client-site
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2.npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Set up Environment Variables
+Create a .env file in the root directory and append the necessary configurations:
 
-## Learn More
+PORT=4000
+DB_USER=your_mongodb_username
+DB_PASS=your_mongodb_password
+ACCESS_TOKEN_SECRET=your_jwt_secret_key
+FB_SERVICE_KEY=your_firebase_base64_encoded_json_key
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4. Start the development server
+Bash
+npm start
