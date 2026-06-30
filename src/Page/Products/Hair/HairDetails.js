@@ -13,48 +13,63 @@ const HairDetails = () => {
   const axiosSecure = useAxiosSecure();
   const [, refetch] = useCart();
   const handleAddTOCart = () => {
-
-    if (user && user.email) {
-      //send cart item to the database..
-      const cartItem = {
-        menuId: _id,
-        email: user.email,
-        name,
-        image,
-        price
-      }
-      axiosSecure.post('/api/cartItem', cartItem)
-        .then(res => {
-          if (res.data.insertedId) {
-            Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: `${name} added to your cart`,
-              showConfirmButton: false,
-              timer: 1500
-            });
-            //refetch cart to update the caet items count
-            refetch();
-          }
-        })
-    }
-    else {
-      Swal.fire({
-        title: "𝐘𝐨𝐮 𝐚𝐫𝐞 𝐧𝐨𝐭 𝐥𝐨𝐠𝐠𝐞𝐝 𝐈𝐧",
-        text: "𝐏𝐥𝐞𝐚𝐬𝐞 𝐥𝐨𝐠𝐢𝐧 𝐭𝐨 𝐚𝐝𝐝 𝐭𝐨 𝐭𝐡𝐞 𝐜𝐚𝐫𝐭 ! ",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "𝐘𝐞𝐬 ,  𝐋𝐨𝐠𝐈𝐧"
-      }).then((result) => {
-        if (result.isConfirmed) {
-          navigate('/login', { state: { from: location } })
+  
+      if (user && user.email) {
+        //send cart item to the database..
+        const cartItem = {
+          menuId: _id,
+          email: user.email,
+          name,
+          image,
+          price
         }
-      });
+        axiosSecure.post('/cartItem', cartItem)
+          .then(res => {
+            if (res.data.insertedId) {
+              //refetch cart to update the cart items count
+              refetch();
+              Swal.fire({
+                title: "Success!",
+                text: `${name} has been added to your cart.`,
+                icon: "success",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "View Cart",
+                cancelButtonText: "Continue Shopping"
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  navigate('/dashboard/cart');
+                }
+              });
+            }
+          })
+          .catch(error => {
+            console.error("Failed to add item to cart:", error);
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Something went wrong! Please try again.',
+            });
+          })
+      }
+      else {
+        Swal.fire({
+          title: "𝐘𝐨𝐮 𝐚𝐫𝐞 𝐧𝐨𝐭 𝐥𝐨𝐠𝐠𝐞𝐝 𝐈𝐧",
+          text: "𝐏𝐥𝐞𝐚𝐬𝐞 𝐥𝐨𝐠𝐢𝐧 𝐭𝐨 𝐚𝐝𝐝 𝐭𝐨 𝐭𝐡𝐞 𝐜𝐚𝐫𝐭 ! ",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "𝐘𝐞𝐬 ,  𝐋𝐨𝐠𝐈𝐧"
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate('/login', { state: { from: location } })
+          }
+        });
+      }
+  
     }
-
-  }
 
   return (
     <div className='lg:p-7   bg-black  lg:flex' >

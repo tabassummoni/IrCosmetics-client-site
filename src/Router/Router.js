@@ -36,6 +36,7 @@ import ReviewShow from "../Page/Review/ReviewShow";
 import ShowAllReviewAdmin from "../Page/DashBoard/ShowAllReviewAdmin";
 import Adminhome from "../Page/DashBoard/AdminHome/Adminhome";
 import Contact from "../Page/DashBoard/Contact";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
     {
@@ -70,7 +71,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'makeUpCare/:id',
-                element: <HairDetails></HairDetails>,
+                element: <MkDetails></MkDetails>,
                 loader:({params})=>fetch(`http://localhost:4000/makeupcosmetics/${params.id}`)
             },
             
@@ -95,27 +96,6 @@ export const router = createBrowserRouter([
             {
                 path: '/about',
                 element:<AboutUsHome></AboutUsHome>
-            },
-            
-            {
-                path: '/adminProductAdd',
-                element:<AdminProductAdd></AdminProductAdd>
-            },
-            {
-                path: '/addSkinProduct',
-                element:<AddskinPro></AddskinPro>
-            },
-            {
-                path: '/addHairProduct',
-                element:<AddHairCareProduct></AddHairCareProduct>
-            },
-            {
-                path: '/addMakeUpProduct',
-                element:<AddMakeUpProduct></AddMakeUpProduct>
-            },
-            {
-                path: '/addBabyProduct',
-                element:<AddBabyCareProduct></AddBabyCareProduct>
             },
             // {
             //     path: '/skinEdit/:id',
@@ -185,27 +165,27 @@ export const router = createBrowserRouter([
 
                 {
                     path:'allUsers',
-                    element:<AllUsers></AllUsers>
+                    element:<AdminRoute><AllUsers /></AdminRoute>
                 },
                 {
                 path: 'adminProductAdd',
-                element:<AdminProductAdd></AdminProductAdd>
+                element:<AdminRoute><AdminProductAdd /></AdminRoute>
             },
             {
                 path: 'addSkinProduct',
-                element:<AddskinPro></AddskinPro>
+                element:<AdminRoute><AddskinPro /></AdminRoute>
             },
             {
                 path: 'addHairProduct',
-                element:<AddHairCareProduct></AddHairCareProduct>
+                element:<AdminRoute><AddHairCareProduct /></AdminRoute>
             },
             {
                 path: 'addMakeUpProduct',
-                element:<AddMakeUpProduct></AddMakeUpProduct>
+                element:<AdminRoute><AddMakeUpProduct /></AdminRoute>
             },
             {
                 path: 'addBabyProduct',
-                element:<AddBabyCareProduct></AddBabyCareProduct>
+                element:<AdminRoute><AddBabyCareProduct /></AdminRoute>
             },
             // {
             //     path: 'skinEdit/:id',
@@ -214,23 +194,23 @@ export const router = createBrowserRouter([
             // },
             {
                 path: 'skinEditshow',
-                element:<SkinShow></SkinShow>
+                element:<AdminRoute><SkinShow /></AdminRoute>
             },
              {
                 path: 'babyShow',
-                element:<BabyShow></BabyShow>
+                element:<AdminRoute><BabyShow /></AdminRoute>
             },
              {
                 path: 'makeupShow',
-                element:<MakeUpShow></MakeUpShow>
+                element:<AdminRoute><MakeUpShow /></AdminRoute>
             },
              {
                 path: 'hairshow',
-                element:<HairShow></HairShow>
+                element:<AdminRoute><HairShow /></AdminRoute>
             },
              {
                 path: 'adminHome',
-                element:<Adminhome></Adminhome>
+                element:<AdminRoute><Adminhome /></AdminRoute>
             },
             {
                 path: 'contact',
@@ -248,7 +228,7 @@ export const router = createBrowserRouter([
                 },
                   {
                     path: 'allreview',
-                    element:<ShowAllReviewAdmin></ShowAllReviewAdmin>
+                    element:<AdminRoute><ShowAllReviewAdmin /></AdminRoute>
                 },
             {
                 path: 'hairEdit/:id',

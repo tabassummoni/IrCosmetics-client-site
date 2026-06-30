@@ -26,16 +26,31 @@ const SkinDetails = () => {
       axiosSecure.post('/cartItem', cartItem)
         .then(res => {
           if (res.data.insertedId) {
-            Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: `${name} added to your cart`,
-              showConfirmButton: false,
-              timer: 1500
-            });
-            //refetch cart to update the caet items count
+            //refetch cart to update the cart items count
             refetch();
+            Swal.fire({
+              title: "Success!",
+              text: `${name} has been added to your cart.`,
+              icon: "success",
+              showCancelButton: true,
+              confirmButtonColor: "#3085d6",
+              cancelButtonColor: "#d33",
+              confirmButtonText: "View Cart",
+              cancelButtonText: "Continue Shopping"
+            }).then((result) => {
+              if (result.isConfirmed) {
+                navigate('/dashboard/cart');
+              }
+            });
           }
+        })
+        .catch(error => {
+          console.error("Failed to add item to cart:", error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong! Please try again.',
+          });
         })
     }
     else {

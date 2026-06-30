@@ -7,10 +7,12 @@ import { AuthContext } from "../contex/AuthProvider";
 const useCart = () => { 
     //tan stack query ....
     const axiosSecure = useAxiosSecure();
-    const {user} = useContext(AuthContext);
+    const {user, loading} = useContext(AuthContext);
     const {refetch ,data : cart=[]}= useQuery({
         queryKey:['cart', user?.email],
+        enabled: !loading && !!user?.email,
         queryFn : async () => {
+            if (!user?.email) return [];
              const res = await axiosSecure.get(`/cartItem?email=${user.email}`)
                 return res.data;
 }
