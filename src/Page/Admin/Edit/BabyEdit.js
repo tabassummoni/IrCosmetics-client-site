@@ -12,7 +12,7 @@ const BabyEdit = () => {
        const details = form.details.value;
        console.log(name,price);
        const updateSkinProduct ={name,price,expiration,details}
-       fetch(`http://localhost:4000/babyCosmetics/${_id}`,{
+       fetch(`https://ir-server-site-1.onrender.com/babyCosmetics/${_id}`,{
          method :'PUT',
          headers:{
            'content-type' : 'application/json'

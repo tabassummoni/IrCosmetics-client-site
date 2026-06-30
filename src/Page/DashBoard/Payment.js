@@ -43,7 +43,7 @@ const [method, setMethod] = useState('');
   };
 
   try {
-    const res = await fetch("http://localhost:4000/order", {
+    const res = await fetch("https://ir-server-site-1.onrender.com/order", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(orderData),
@@ -52,7 +52,7 @@ const [method, setMethod] = useState('');
     const data = await res.json();
 
     if (res.ok) {
-        await fetch(`http://localhost:4000/cartItem?email=${user.email}`, {
+        await fetch(`https://ir-server-site-1.onrender.com/cartItem?email=${user.email}`, {
         method: "DELETE",
       });
       // show success alert

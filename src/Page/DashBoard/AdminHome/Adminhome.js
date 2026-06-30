@@ -6,7 +6,7 @@ const Adminhome = () => {
 
   const fetchOrders = async () => {
     try {
-      const res = await fetch('http://localhost:4000/orders');
+      const res = await fetch('https://ir-server-site-1.onrender.com/orders');
       const data = await res.json();
       setOrders(data);
     } catch (err) {
@@ -20,7 +20,7 @@ const Adminhome = () => {
 
   const handleConfirm = async (orderId) => {
    try {
-    const res = await fetch(`http://localhost:4000/orders/${orderId}/confirm`, {
+    const res = await fetch(`https://ir-server-site-1.onrender.com/orders/${orderId}/confirm`, {
       method: 'PATCH',
     });
     const data = await res.json();

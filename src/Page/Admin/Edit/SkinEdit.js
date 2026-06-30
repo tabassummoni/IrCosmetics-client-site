@@ -13,7 +13,7 @@ const handleUpdate =  event =>{
     const details = form.details.value;
     console.log(name,price);
     const updateSkinProduct ={name,price,expiration,details}
-    fetch(`http://localhost:4000/skin/${_id}`,{
+    fetch(`https://ir-server-site-1.onrender.com/skin/${_id}`,{
       method :'PUT',
       headers:{
         'content-type' : 'application/json'

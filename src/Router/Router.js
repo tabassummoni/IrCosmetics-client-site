@@ -36,6 +36,7 @@ import ReviewShow from "../Page/Review/ReviewShow";
 import ShowAllReviewAdmin from "../Page/DashBoard/ShowAllReviewAdmin";
 import Adminhome from "../Page/DashBoard/AdminHome/Adminhome";
 import Contact from "../Page/DashBoard/Contact";
+import DashboardRedirect from "../Page/DashBoard/DashboardRedirect";
 import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
@@ -62,7 +63,7 @@ export const router = createBrowserRouter([
             {
                 path: 'skincare/:id',
                 element: <SkinDetails></SkinDetails>,
-                loader:({params})=>fetch(`http://localhost:4000/skin/${params.id}`)
+                loader:({params})=>fetch(`https://ir-server-site-1.onrender.com/skin/${params.id}`)
          
             },
             {
@@ -72,7 +73,7 @@ export const router = createBrowserRouter([
             {
                 path: 'makeUpCare/:id',
                 element: <MkDetails></MkDetails>,
-                loader:({params})=>fetch(`http://localhost:4000/makeupcosmetics/${params.id}`)
+                loader:({params})=>fetch(`https://ir-server-site-1.onrender.com/makeupcosmetics/${params.id}`)
             },
             
             {
@@ -82,7 +83,7 @@ export const router = createBrowserRouter([
             {
                 path: 'hairCare/:id',
                 element: <HairDetails></HairDetails>,
-                loader:({params})=>fetch(`http://localhost:4000/cosmetics/${params.id}`)
+                loader:({params})=>fetch(`https://ir-server-site-1.onrender.com/cosmetics/${params.id}`)
             }, 
             {
                 path: '/babyCare',
@@ -91,7 +92,7 @@ export const router = createBrowserRouter([
             {
                 path: 'babyCare/:id',
                 element: <BMDetails></BMDetails>,
-                loader:({params})=>fetch(`http://localhost:4000/babyCosmetics/${params.id}`)
+                loader:({params})=>fetch(`https://ir-server-site-1.onrender.com/babyCosmetics/${params.id}`)
             }, 
             {
                 path: '/about',
@@ -100,7 +101,7 @@ export const router = createBrowserRouter([
             // {
             //     path: '/skinEdit/:id',
             //     element:<SkinEdit></SkinEdit>,
-            //     loader:({params})=>fetch(`http://localhost:4000/skin/${params.id}`)
+            //     loader:({params})=>fetch(`https://ir-server-site-1.onrender.com/skin/${params.id}`)
             // },
             {
                 path: '/skinEditshow',
@@ -126,25 +127,25 @@ export const router = createBrowserRouter([
             {
                 path: 'skinEditshow/:id',
                 element: <SkinEdit></SkinEdit>,
-                loader:({params})=>fetch(`http://localhost:4000/skin/${params.id}`)
+                loader:({params})=>fetch(`https://ir-server-site-1.onrender.com/skin/${params.id}`)
          
             },
             {
                 path: '/hairEdit/:id',
                 element:<HairEdit></HairEdit>,
-                loader:({params})=>fetch(`http://localhost:4000/cosmetics/${params.id}`)
+                loader:({params})=>fetch(`https://ir-server-site-1.onrender.com/cosmetics/${params.id}`)
 
             },
             {
                 path: '/babyEdit/:id',
                 element:<BabyEdit></BabyEdit>,
-                loader:({params})=>fetch(`http://localhost:4000/babyCosmetics/${params.id}`)
+                loader:({params})=>fetch(`https://ir-server-site-1.onrender.com/babyCosmetics/${params.id}`)
 
             },
             {
                 path: '/makeUpEdit/:id',
                 element:<MakeUpEdit></MakeUpEdit>,
-                loader:({params})=>fetch(`http://localhost:4000/makeupcosmetics/${params.id}`)
+                loader:({params})=>fetch(`https://ir-server-site-1.onrender.com/makeupcosmetics/${params.id}`)
 
             },
         ]},
@@ -152,6 +153,10 @@ export const router = createBrowserRouter([
             path:'dashboard',
             element:<PrivetRoute><Dashboard></Dashboard></PrivetRoute>,
             children :[
+                {
+                    index: true,
+                    element: <DashboardRedirect />
+                },
                 {
                     path: 'cart',
                     element:<Cart></Cart>
@@ -190,7 +195,7 @@ export const router = createBrowserRouter([
             // {
             //     path: 'skinEdit/:id',
             //     element:<SkinEdit></SkinEdit>,
-            //     loader:({params})=>fetch(`http://localhost:4000/skin/${params.id}`)
+            //     loader:({params})=>fetch(`https://ir-server-site-1.onrender.com/skin/${params.id}`)
             // },
             {
                 path: 'skinEditshow',
@@ -219,7 +224,7 @@ export const router = createBrowserRouter([
             {
                 path: 'skinEditshow/:id',
                 element: <SkinEdit></SkinEdit>,
-                loader:({params})=>fetch(`http://localhost:4000/skin/${params.id}`)
+                loader:({params})=>fetch(`https://ir-server-site-1.onrender.com/skin/${params.id}`)
          
             },
             {
@@ -233,19 +238,19 @@ export const router = createBrowserRouter([
             {
                 path: 'hairEdit/:id',
                 element:<HairEdit></HairEdit>,
-                loader:({params})=>fetch(`http://localhost:4000/cosmetics/${params.id}`)
+                loader:({params})=>fetch(`https://ir-server-site-1.onrender.com/cosmetics/${params.id}`)
 
             },
             {
                 path: 'babyEdit/:id',
                 element:<BabyEdit></BabyEdit>,
-                loader:({params})=>fetch(`http://localhost:4000/babyCosmetics/${params.id}`)
+                loader:({params})=>fetch(`https://ir-server-site-1.onrender.com/babyCosmetics/${params.id}`)
 
             },
             {
                 path: 'makeUpEdit/:id',
                 element:<MakeUpEdit></MakeUpEdit>,
-                loader:({params})=>fetch(`http://localhost:4000/makeupcosmetics/${params.id}`)
+                loader:({params})=>fetch(`https://ir-server-site-1.onrender.com/makeupcosmetics/${params.id}`)
 
             },
             ]

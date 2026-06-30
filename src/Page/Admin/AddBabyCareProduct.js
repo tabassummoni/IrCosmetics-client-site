@@ -41,7 +41,7 @@ const AddBabyCareProduct = () => {
         // const initialData = Object.fromEntries(formData.entries());
         // console.log(initialData);
 
-        fetch('http://localhost:4000/babyCosmetics',{
+        fetch('https://ir-server-site-1.onrender.com/babyCosmetics',{
             method :'POST',
             headers: {
                 'content-type': 'application/json'

@@ -6,7 +6,7 @@ const HairShowdetails = ({hairProduct}) => {
        
     const handleDelete =_id =>{
         console.log(_id)
-        fetch (`http://localhost:4000/cosmetics/${_id}`,{
+        fetch (`https://ir-server-site-1.onrender.com/cosmetics/${_id}`,{
             method:'DELETE'
         })
         

@@ -40,7 +40,7 @@ const AddMakeUpProduct = () => {
         // const initialData = Object.fromEntries(formData.entries());
         // console.log(initialData);
 
-        fetch('http://localhost:4000/makeupcosmetics',{
+        fetch('https://ir-server-site-1.onrender.com/makeupcosmetics',{
             method :'POST',
             headers: {
                 'content-type': 'application/json'

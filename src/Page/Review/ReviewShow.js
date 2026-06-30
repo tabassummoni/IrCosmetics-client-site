@@ -5,7 +5,7 @@ const ReviewShow = () => {
 
   const fetchReviews = async () => {
     try {
-      const res = await fetch("http://localhost:4000/review");
+      const res = await fetch("https://ir-server-site-1.onrender.com/review");
       const data = await res.json();
       setReviews(data);
     } catch (err) {

@@ -3,16 +3,14 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { FaHome, FaList, FaUsers, FaServer, FaShoppingCart, FaHeart, FaVoicemail } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
 import useCart from '../../hooks/useCart';
-import { MdEmail } from "react-icons/md";
+import { MdEmail, MdOutlineRateReview } from "react-icons/md";
 import { TbShoppingBagPlus } from "react-icons/tb";
-import useUserRole from '../../hooks/useUserRole';
-
+import useAdmin from '../../hooks/useAdmin';
 
 const Dashboard = () => {
     const [cart] = useCart();
-    const { role, roleLoading } = useUserRole();
-    console.log(role)
-    // const isAdmin = true;
+    const [isAdmin, isAdminLoading] = useAdmin();
+
     return (
         
         <div className="flex flex-col lg:flex-row">
@@ -20,7 +18,7 @@ const Dashboard = () => {
       <div className="hidden lg:block lg:w-64 min-h-screen text-white" style={{ background: '#4a0429' }}>
          <ul className='menu p-4'>
                     {
-                        !roleLoading && role === 'admin' &&
+                        !isAdminLoading && isAdmin &&
                         <>
                             <li className='lg:text-2xl md:text-sm text-xs' >
                                 <NavLink to='/dashboard/adminHome'> <FaHome></FaHome>𝐀𝐝𝐦𝐢𝐧 𝐇𝐨𝐦𝐞</NavLink>
@@ -46,7 +44,7 @@ const Dashboard = () => {
                         <NavLink to='/dashboard/cart'> <FaShoppingCart ></FaShoppingCart>𝐌𝐲 𝐂𝐚𝐫𝐭 ({cart.length})</NavLink>
                     </li>
                     <li className='lg:text-2xl md:text-sm' >
-                        <NavLink to='/dashboard/review'> <FaServer ></FaServer>𝐀𝐝𝐝 𝐚 𝐑𝐞𝐯𝐢𝐞𝐰</NavLink>
+                        <NavLink to='/dashboard/review'> <MdOutlineRateReview />𝐀𝐝𝐝 𝐚 𝐑𝐞𝐯𝐢𝐞𝐰</NavLink>
                     </li>
                     <li className='lg:text-2xl md:text-sm' >
                         <NavLink to='/dashboard/wishList'> <FaHeart ></FaHeart>𝐖𝐢𝐬𝐡 𝐋𝐢𝐬𝐭</NavLink>
@@ -83,7 +81,7 @@ const Dashboard = () => {
             <div className='lg:w-64 hidden sm:hidden md:inline min-h-screen text-white ' style={{ background: '#4a0429' }}>
                 <ul className='menu p-4'>
                     {
-                        !roleLoading && role === 'admin' &&
+                        !isAdminLoading && isAdmin &&
                         <>
                             <li className='lg:text-2xl md:text-sm text-xs' >
                                 <NavLink to='/dashboard/adminHome'> <FaHome></FaHome>𝐀𝐝𝐦𝐢𝐧 𝐇𝐨𝐦𝐞</NavLink>
@@ -109,7 +107,7 @@ const Dashboard = () => {
                         <NavLink to='/dashboard/cart'> <FaShoppingCart ></FaShoppingCart>𝐌𝐲 𝐂𝐚𝐫𝐭 ({cart.length})</NavLink>
                     </li>
                     <li className='lg:text-2xl md:text-sm' >
-                        <NavLink to='/dashboard/review'> <FaServer ></FaServer>𝐀𝐝𝐝 𝐚 𝐑𝐞𝐯𝐢𝐞𝐰</NavLink>
+                        <NavLink to='/dashboard/review'> <MdOutlineRateReview />𝐀𝐝𝐝 𝐚 𝐑𝐞𝐯𝐢𝐞𝐰</NavLink>
                     </li>
                     <li className='lg:text-2xl md:text-sm' >
                         <NavLink to='/dashboard/wishList'> <FaHeart ></FaHeart>𝐖𝐢𝐬𝐡 𝐋𝐢𝐬𝐭</NavLink>
@@ -149,7 +147,7 @@ const Dashboard = () => {
       <div className="lg:hidden w-full bg-[#4a0429] text-white">
         <ul className="flex flex-wrap justify-around items-center p-2 text-xs sm:text-sm md:text-base">
           {/* Admin Links */}
-          {!roleLoading && role === 'admin' && (
+          {!isAdminLoading && isAdmin && (
             <>
               <li>
                 <NavLink to="/dashboard/adminHome"><FaHome /> <span className="hidden sm:inline">Admin</span></NavLink>

@@ -11,7 +11,7 @@ const { user } = useContext(AuthContext);
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:4000/users/${user.email}`)
+      fetch(`https://ir-server-site-1.onrender.com/users/${user.email}`)
         .then(res => res.json())
         .then(data => setDbUser(data))
         .catch(err => console.error(err));
@@ -37,7 +37,7 @@ const { user } = useContext(AuthContext);
     };
 
     try {
-      const res = await fetch("http://localhost:4000/review", {
+      const res = await fetch("https://ir-server-site-1.onrender.com/review", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

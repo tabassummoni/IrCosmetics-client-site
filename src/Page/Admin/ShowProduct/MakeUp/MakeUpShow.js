@@ -4,7 +4,7 @@ import MakeUpShowDetails from './MakeUpShowDetails';
 const MakeUpShow = () => {
    const [makeUpProducts ,setMakeUpProducts] = useState([]);
     useEffect ( () => {
-        fetch('http://localhost:4000/makeupcosmetics')
+        fetch('https://ir-server-site-1.onrender.com/makeupcosmetics')
         .then(res => res.json())
         .then(data => setMakeUpProducts(data))
     })

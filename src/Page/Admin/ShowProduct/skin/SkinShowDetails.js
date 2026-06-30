@@ -6,7 +6,7 @@ const SkinShowDetails = ({skinproduct}) => {
        
     const handleDelete =_id =>{
         console.log(_id)
-        fetch (`http://localhost:4000/skin/${_id}`,{
+        fetch (`https://ir-server-site-1.onrender.com/skin/${_id}`,{
             method:'DELETE'
         })
         

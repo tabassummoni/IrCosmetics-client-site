@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import useAuth from './useAuth';
 
 const axiosSecure = axios.create({
-  baseURL: `http://localhost:4000`, // no trailing slash needed
+  baseURL: `https://ir-server-site-1.onrender.com`, // no trailing slash needed
 });
 
 const useAxiosSecure = () => {

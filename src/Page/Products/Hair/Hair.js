@@ -4,7 +4,7 @@ import HairPro from './HairPro';
 const Hair = () => {
   const [hairProducts, setHairProduts] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:4000/cosmetics')
+    fetch('https://ir-server-site-1.onrender.com/cosmetics')
       .then(res => res.json())
       .then(data => setHairProduts(data))
   })

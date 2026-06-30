@@ -4,7 +4,7 @@ import BabyMonPro from './BabyMonPro';
 const BabyMom = () => {
   const [babyProducts, setbabyProducts] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:4000/babyCosmetics')
+    fetch('https://ir-server-site-1.onrender.com/babyCosmetics')
       .then(res => res.json())
       .then(data => setbabyProducts(data))
   })

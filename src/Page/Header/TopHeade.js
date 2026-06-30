@@ -13,7 +13,7 @@ const TopHeade = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:4000/users/${user.email}`)
+      fetch(`https://ir-server-site-1.onrender.com/users/${user.email}`)
         .then(res => res.json())
         .then(data => setDbUser(data))
         .catch(err => console.error(err));

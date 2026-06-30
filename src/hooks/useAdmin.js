@@ -11,8 +11,9 @@ const useAdmin = () => {
         enabled: !loading && !!user?.email,
         queryFn: async () => {
             if (user?.email) {
-                const res = await axiosSecure.get(`/users/admin/${user.email}`);
-                return res.data?.admin;
+                const res = await axiosSecure.get(`/users/${user.email}/role`);
+                // Assuming the API returns { role: 'admin' } or { role: 'user' }
+                return res.data?.role === 'admin';
             }
             return false;
         }

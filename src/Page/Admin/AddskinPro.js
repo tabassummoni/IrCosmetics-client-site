@@ -43,7 +43,7 @@ const AddskinPro = () => {
         // const initialData = Object.fromEntries(formData.entries());
         // console.log(initialData);
 
-        fetch('http://localhost:4000/skin',{
+        fetch('https://ir-server-site-1.onrender.com/skin',{
             method :'POST',
             headers: {
                 'content-type': 'application/json'
